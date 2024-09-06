@@ -25,4 +25,3 @@ public:
 };
 
 #endif // RECTANGLE_H
-rectangle.h
