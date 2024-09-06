@@ -32,4 +32,3 @@ double Rectangle::getArea() const {
 double Rectangle::getPerimeter() const {
     return 2 * (length + width);
 }
-rectangle.cpp
