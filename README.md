@@ -1,2 +1,0 @@
-# Group1
-CometBudgeting 😎
