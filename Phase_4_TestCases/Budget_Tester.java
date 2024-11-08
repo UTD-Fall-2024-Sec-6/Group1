@@ -44,34 +44,34 @@ class Budget_Tester
     void UC9_TC1() 
     {
         Budget budget = new Budget(1000.00);
-        assertEquals(budget.setInsight(500.00, "short-term", true), "Financial goal set successfully");
+        assertEquals(budget.createGoal(500.00, "short-term", true), "Financial goal set successfully");
     }
 
     @Test 
     void UC9_TC2() 
     {
         Budget budget = new Budget(1000.00);
-        assertEquals(budget.setInsight(500.00, "short-term", false), "Transaction canceled");
+        assertEquals(budget.createGoal(500.00, "short-term", false), "Transaction canceled");
     }
 
     @Test 
     void UC9_TC5() 
     {
         Budget budget = new Budget(1000.00);
-        assertEquals(budget.setInsight(-100.00, "short-term", true), "Error: Invalid financial goal amount");
+        assertEquals(budget.createGoal(-100.00, "short-term", true), "Error: Invalid financial goal amount");
     }
 
     @Test 
     void UC9_TC9() 
     {
         Budget budget = new Budget(1000.00);
-        assertEquals(budget.setInsight(100000000.00, "long-term", true), "Error: Financial goal exceeds limit");
+        assertEquals(budget.createGoal(100000000.00, "long-term", true), "Error: Financial goal exceeds limit");
     }
 
     @Test 
     void UC9_TC3() 
     {
         Budget budget = new Budget(1000.00);
-        assertEquals(budget.setInsight(500.00, "weekly", true), "Error: Invalid goal timeframe");
+        assertEquals(budget.createGoal(500.00, "weekly", true), "Error: Invalid goal timeframe");
     }
 }
