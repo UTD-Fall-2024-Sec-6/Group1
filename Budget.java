@@ -1,15 +1,16 @@
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 public class Budget {
     private BudgetItem rootItem;
     private Goal shortTermGoal;
     private Goal longTermGoal;
     private float Savings;
-    private LocalDate dayCreated;
+    private LocalDate dateCreated;
 
     public Budget() {
         rootItem = new BudgetItem("", 0, false, "");
-        dayCreated = LocalDate.now();
+        dateCreated = LocalDate.now();
     }
 
     public void addBudgetItem(String name, float amount, boolean flexible, String category) {
@@ -55,18 +56,42 @@ public class Budget {
 
     public boolean createGoal(float amount, String timespan) {
         if (timespan.equals("short-term")) {
-            shortTermGoal = new Goal(amount, 0);
-            return true;
+            try {
+                shortTermGoal = new Goal(amount, 0);
+                return true;
+            } catch (Exception e) {
+                System.out.println("Error creating short goal: " + e.getMessage());
+                return false;
+            }
         }
         else if (timespan.equals("long-term")) {
-            longTermGoal = new Goal(amount, 0);
-            return true;
+            try {
+                longTermGoal = new Goal(amount, 0);
+                return true;
+            } catch (Exception e) {
+                System.out.println("Error creating long goal: " + e.getMessage());
+                return false;
+            }
         }
 
         return false;
     }
 
-    public String insight() {
+    public String insight(String timespan) {
+        boolean validIncrement = false;
+        LocalDate currentDate = LocalDate.now();
+        long diffInDays = ChronoUnit.DAYS.between(dateCreated, currentDate);
+
+        if (timespan.equals("daily") || timespan.equals("weekly") || timespan.equals("monthly")) {
+            validIncrement = true;
+        }
+
+        if (validIncrement && diffInDays >= 7) {
+            return "Trend Successfully displayed";
+        }
+        if (diffInDays < 7) {
+            return "Error: Insufficient Data";
+        }
 
         return "";
     }
