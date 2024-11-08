@@ -13,13 +13,6 @@ class Budget_Tester
     }
 
     @Test 
-    void UC7_TC2() 
-    {
-        Budget budget = new Budget(1000.00);
-        assertEquals(budget.createInsight(14, "weekly"), "Transaction canceled");
-    }
-
-    @Test 
     void UC7_TC5() 
     {
         Budget budget = new Budget(1000.00);
@@ -45,13 +38,6 @@ class Budget_Tester
     {
         Budget budget = new Budget(1000.00);
         assertEquals(budget.createGoal(500.00, "short-term"), "Financial goal set successfully");
-    }
-
-    @Test 
-    void UC9_TC2() 
-    {
-        Budget budget = new Budget(1000.00);
-        assertEquals(budget.createGoal(500.00, "short-term"), "Transaction canceled");
     }
 
     @Test 
