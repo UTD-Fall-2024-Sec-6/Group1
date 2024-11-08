@@ -3,13 +3,15 @@ import java.time.temporal.ChronoUnit;
 
 public class Budget {
     private BudgetItem rootItem;
+    private float income;
     private Goal shortTermGoal;
     private Goal longTermGoal;
     private float Savings;
     private LocalDate dateCreated;
+    private final float MAX_GOAL = 1000000;
 
-    public Budget() {
-        rootItem = new BudgetItem("", 0, false, "");
+    public Budget(float income) {
+        rootItem = new BudgetItem("Income", income, false, "Income");
         dateCreated = LocalDate.now();
     }
 
@@ -42,19 +44,16 @@ public class Budget {
         return false;
     }
 
-    public void addCategory(String category) {
-
-    }
-
-    public boolean editCategory(String category) {
-        return false;
-    }
-
-    public boolean deleteCategory(String category) {
-        return false;
-    }
-
     public boolean createGoal(float amount, String timespan) {
+        if (amount <= 0) {
+            System.out.println("Error: Invalid financial goal amount");
+            return false;
+        }
+        else if (amount > MAX_GOAL) {
+            System.out.println("Error: Financial goal exceeds limit");
+            return false;
+        }
+
         if (timespan.equals("short-term")) {
             try {
                 shortTermGoal = new Goal(amount, 0);
@@ -77,16 +76,16 @@ public class Budget {
         return false;
     }
 
-    public String insight(String timespan) {
+    public String createInsight(int trendDuration, String timeSlice) {
         boolean validIncrement = false;
         LocalDate currentDate = LocalDate.now();
         long diffInDays = ChronoUnit.DAYS.between(dateCreated, currentDate);
 
-        if (timespan.equals("daily") || timespan.equals("weekly") || timespan.equals("monthly")) {
+        if (timeSlice.equals("weekly") || timeSlice.equals("monthly")) {
             validIncrement = true;
         }
 
-        if (validIncrement && diffInDays >= 7) {
+        if (validIncrement && diffInDays >= trendDuration) {
             return "Trend Successfully displayed";
         }
         if (diffInDays < 7) {
@@ -95,7 +94,4 @@ public class Budget {
 
         return "";
     }
-
-
-
 }
