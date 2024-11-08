@@ -23,14 +23,14 @@ class Budget_Tester
     void UC7_TC5() 
     {
         Budget budget = new Budget(1000.00);
-        assertEquals(budget.createInsight(3, "weekly", true), "Error: Insufficient Data");
+        assertEquals(budget.createInsight(7, "weekly", true), "Error: Insufficient Data");
     }
 
     @Test 
     void UC7_TC3() 
     {
         Budget budget = new Budget(1000.00);
-        assertEquals(budget.createInsight(3, "hourly", true), "Error: Invalid frequency");
+        assertEquals(budget.createInsight(7, "weekly", true), "Error: Invalid frequency");
     }
 
     @Test 
