@@ -5,12 +5,12 @@ public class User {
     private String userID;
     private Budget budget;
 
-    public User(String name, String email, String password, String userID) {
+    public User(String name, String email, String password, String userID, double income) {
         this.name = name;
         this.email = email;
         this.password = password;
         this.userID = userID;
-        this.budget = new Budget();
+        this.budget = new Budget(income);
     }
 
     // Getter and setter for name
@@ -52,5 +52,9 @@ public class User {
     // Getter for budget
     public Budget getBudget() {
         return budget;
+    }
+
+    public void setBudget(Budget budget) {
+        this.budget = budget;
     }
 }
