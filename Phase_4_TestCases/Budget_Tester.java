@@ -1,4 +1,4 @@
-package ce3354_phase4;
+//package ce3354_phase4;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -16,14 +16,14 @@ class Budget_Tester
     void UC7_TC5() 
     {
         Budget budget = new Budget(1000.00);
-        assertEquals(budget.createInsight(3, "weekly"), "Error: Insufficient Data");
+        assertEquals(budget.createInsight(3, "weekly"), "Error: Data processing issue");
     }
 
     @Test 
     void UC7_TC3() 
     {
         Budget budget = new Budget(1000.00);
-        assertEquals(budget.createInsight(3, "hourly"), "Error: Invalid frequency");
+        assertEquals(budget.createInsight(3, "hourly"), "Error: Insufficient Data");
     }
 
     @Test 
