@@ -11,6 +11,14 @@ public class DBMgr {
         return db.getUserByID(uid);
     }
 
+    public User getUserByUsername(String username) {
+        return db.getUserByID(db.getUIDByUsername(username));
+    }
+
+    public String getUIDByUsername(String username) {
+        return db.getUIDByUsername(username);
+    }
+
     public boolean saveUser(User user) {
         return db.addUser(user);
     }
@@ -18,7 +26,7 @@ public class DBMgr {
     public boolean saveBudget(String uid, Budget budget) {
         User user = db.getUserByID(uid);
         if (user != null) {
-            user.getBudget().setBudget(budget);
+            user.setBudget(budget);
             return true;
         }
         return false;
@@ -31,5 +39,21 @@ public class DBMgr {
             return true;
         }
         return false;
+    }
+
+    public String getBalance(String username) {
+        User user = db.getUserByID(db.getUIDByUsername(username));
+        if (user != null) {
+            return user.getBudget().getIncome() + "";
+        }
+        return "Error retrieving budget";
+    }
+
+    public Budget getBudget(String uid) {
+        User user = db.getUserByID(uid);
+        if (user != null) {
+            return user.getBudget();
+        }
+        return null;
     }
 }
