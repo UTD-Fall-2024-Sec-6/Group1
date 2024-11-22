@@ -1,11 +1,11 @@
 public class BudgetItem {
     private boolean flexible;
     private String name;
-    private float amount;
+    private double amount;
     private BudgetItem nextItem;
     private String category;
 
-    public BudgetItem(String name, float amount, boolean flexible, String category) {
+    public BudgetItem(String name, double amount, boolean flexible, String category) {
         this.name = name;
         this. amount = amount;
         this.flexible = flexible;
@@ -13,7 +13,7 @@ public class BudgetItem {
         this.nextItem = null;
     }
 
-    public void setAmount(float f) {
+    public void setAmount(double f) {
         this.amount = f;
     }
 
@@ -29,7 +29,7 @@ public class BudgetItem {
         this.flexible = f;
     }
 
-    public float getAmount() {
+    public double getAmount() {
         return amount;
     }
 
