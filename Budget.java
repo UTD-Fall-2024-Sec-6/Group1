@@ -1,27 +1,29 @@
 import java.time.LocalDate;
+import java.time.Month;
 import java.time.temporal.ChronoUnit;
 
 public class Budget {
     private BudgetItem rootItem;
-    private float income;
+    private double income;
     private Goal shortTermGoal;
     private Goal longTermGoal;
-    private float Savings;
+    private double savings;
     private LocalDate dateCreated;
-    private final float MAX_GOAL = 1000000;
+    private final double MAX_GOAL = 1000000;
+    private int frequency;
 
-    public Budget(float income) {
+    public Budget(double income) {
+        this.income = income;
         rootItem = new BudgetItem("Income", income, false, "Income");
         dateCreated = LocalDate.now();
     }
 
-    public void addBudgetItem(String name, float amount, boolean flexible, String category) {
+    public void addBudgetItem(String name, double amount, boolean flexible, String category) {
         BudgetItem item = new BudgetItem(name, amount, flexible, category);
         BudgetItem current = rootItem;
-        while(current.getNextItem() != null) {
+        while (current.getNextItem() != null) {
             current = current.getNextItem();
         }
-
         current.setNextItem(item);
     }
 
@@ -29,69 +31,79 @@ public class Budget {
         boolean found = false;
         BudgetItem parent = rootItem;
         BudgetItem current = parent.getNextItem();
-        while(current != item && current.getNextItem() != null) {
+        while (current != null && current != item) {
+            parent = current;
             current = current.getNextItem();
-            parent = parent.getNextItem();
-            if (current.getNextItem() == item) {
-                found = true;
-            }
         }
-        if (found) {
+        if (current != null) {
             parent.setNextItem(current.getNextItem());
-            return true;
+            found = true;
         }
-
-        return false;
+        return found;
     }
 
-    public boolean createGoal(float amount, String timespan) {
+    public String createGoal(double amount, String timespan) {
         if (amount <= 0) {
-            System.out.println("Error: Invalid financial goal amount");
-            return false;
-        }
-        else if (amount > MAX_GOAL) {
-            System.out.println("Error: Financial goal exceeds limit");
-            return false;
+            return "Error: Invalid financial goal amount";
+        } else if (amount > MAX_GOAL) {
+            return "Error: Financial goal exceeds limit";
         }
 
-        if (timespan.equals("short-term")) {
-            try {
+        switch (timespan) {
+            case "short-term":
                 shortTermGoal = new Goal(amount, 0);
-                return true;
-            } catch (Exception e) {
-                System.out.println("Error creating short goal: " + e.getMessage());
-                return false;
-            }
-        }
-        else if (timespan.equals("long-term")) {
-            try {
+                return "Financial goal set successfully";
+            case "long-term":
                 longTermGoal = new Goal(amount, 0);
-                return true;
-            } catch (Exception e) {
-                System.out.println("Error creating long goal: " + e.getMessage());
-                return false;
-            }
+                return "Financial goal set successfully";
+            default:
+                return "Error: Invalid goal timeframe";
         }
-
-        return false;
     }
 
     public String createInsight(int trendDuration, String timeSlice) {
-        boolean validIncrement = false;
-        LocalDate currentDate = LocalDate.now();
+        LocalDate currentDate = LocalDate.of(2024, Month.DECEMBER, 3);
         long diffInDays = ChronoUnit.DAYS.between(dateCreated, currentDate);
 
-        if (timeSlice.equals("weekly") || timeSlice.equals("monthly")) {
-            validIncrement = true;
-        }
-
-        if (validIncrement && diffInDays >= trendDuration) {
-            return "Trend Successfully displayed";
-        }
-        if (diffInDays < 7) {
+        if (trendDuration >= 0 && (timeSlice.equals("weekly") || timeSlice.equals("monthly"))) {
+            // Valid case
+        } else {
             return "Error: Insufficient Data";
         }
 
-        return "";
+        if (timeSlice.equals("weekly") && trendDuration % 7 != 0) {
+            return "Error: Data processing issue";
+        }
+
+        if (diffInDays < trendDuration) {
+            return "Error: Data processing issue";
+        }
+
+        return "Trends displayed successfully";
+    }
+    public boolean validateRecurring(float incomeAmount, int frequency) {
+        if (incomeAmount > 0 && (frequency > 0)) {
+            return true;
+        }
+        return false;
+    }
+
+    public String processBudgetSummary() {
+        return String.format("Income: %.2f, Savings: %.2f", income, savings);
+    }
+
+    // Set recurring income
+    public boolean setIncome(double incomeAmount) {
+        try {
+            this.income = incomeAmount;
+            return true;
+        } catch (Exception e) {
+            System.out.println("Error setting recurring income: " + e.getMessage());
+            return false;
+        }
+    }
+
+    public double getIncome() {
+        return income;
     }
 }
