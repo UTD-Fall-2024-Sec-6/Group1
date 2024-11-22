@@ -1,27 +1,35 @@
-import java.io.File;
+import java.util.HashMap;
 
 public class DBMgr {
+    private DB db;
+
+    public DBMgr(DB db) {
+        this.db = db;
+    }
+
     public User getUser(String uid) {
-        return null;
+        return db.getUserByID(uid);
     }
 
-    public boolean saveBudget(Budget budget) {
-        return true;
+    public boolean saveUser(User user) {
+        return db.addUser(user);
     }
 
-    public boolean saveGoal(Goal goal) {
-        return true;
+    public boolean saveBudget(String uid, Budget budget) {
+        User user = db.getUserByID(uid);
+        if (user != null) {
+            user.getBudget().setBudget(budget);
+            return true;
+        }
+        return false;
     }
 
-    public boolean saveUID(String uid) {
-        return true;
-    }
-
-    public boolean savePassword(char[] password) {
-        return true;
-    }
-
-    public File export(Budget budget) {
-        return null;
+    public boolean savePassword(String uid, String newPassword) {
+        User user = db.getUserByID(uid);
+        if (user != null) {
+            user.setPassword(newPassword);
+            return true;
+        }
+        return false;
     }
 }
