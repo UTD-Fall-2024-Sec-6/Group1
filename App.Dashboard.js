@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Children } from 'react';
 import './App.Dashboard.css';
 
 function HomeButton() {
@@ -49,7 +49,7 @@ function FinancialButton() {
   );
 }
 
-function Dashboard() {
+function Dashboard({ children }) {
   return (
     <div class="dashboard">
       <div class="topbar">
@@ -59,6 +59,7 @@ function Dashboard() {
         <TrendButton/>
         <FinancialButton/>
       </div>
+      {children}
     </div>
   );
 }
