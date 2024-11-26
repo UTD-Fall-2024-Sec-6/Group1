@@ -1,0 +1,149 @@
+.log-in-page,
+.log-in-page * {
+  box-sizing: border-box;
+}
+.log-in-page {
+  display: flex;
+  justify-content: center;
+  background: #fff2e4;
+  height: 1024px;
+  position: static;
+  left: 10%;
+  overflow: hidden;
+}
+.login-box {
+  position: absolute;
+  inset: 0;
+}
+.rectangle-10 {
+  background: #496a54;
+  display: flex;
+  justify-content: center;
+  width: 742px;
+  height: 162px;
+  position: absolute;
+  
+  top: 213px;
+}
+.login {
+  color: #ffffff;
+  text-align: center;
+  font-family: "MerriweatherSans-Regular", sans-serif;
+  font-size: 80px;
+  font-weight: 400;
+  position: relative;
+  width: 742px;
+  height: 162px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.username {
+  color: #496a54;
+  text-align: left;
+  font-family: var(
+    --dashboard-tab-font-family,
+    "MerriweatherSans-Regular",
+    sans-serif
+  );
+  font-size: var(--dashboard-tab-font-size, 30px);
+  font-weight: var(--dashboard-tab-font-weight, 400);
+  position: absolute;
+  left: 532px;
+  top: 427px;
+  width: 742px;
+  height: 55px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+.password {
+  color: #496a54;
+  text-align: left;
+  font-family: var(
+    --dashboard-tab-font-family,
+    "MerriweatherSans-Regular",
+    sans-serif
+  );
+  font-size: var(--dashboard-tab-font-size, 30px);
+  font-weight: var(--dashboard-tab-font-weight, 400);
+  position: absolute;
+  left: 532px;
+  top: 574px;
+  width: 742px;
+  height: 55px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+.rectangle-11 {
+  background: linear-gradient(to left, #d6e2d1, #d6e2d1),
+    linear-gradient(to left, #d9d9d9, #d9d9d9);
+  width: 742px;
+  height: 51px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: 634px;
+}
+.rectangle-12 {
+  background: linear-gradient(to left, #d6e2d1, #d6e2d1),
+    linear-gradient(to left, #d9d9d9, #d9d9d9);
+  width: 742px;
+  height: 51px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: 487px;
+}
+.enter-button {
+  position: absolute;
+  inset: 0;
+}
+.rectangle-13 {
+  background: #ef874c;
+  width: 23.54%;
+  height: 8.11%;
+  position: relative;
+  bottom: 21.48%;
+  top: 70.41%;
+}
+.enter {
+  color: #ffffff;
+  text-align: center;
+  font-family: var(--title-font-family, "MerriweatherSans-Regular", sans-serif);
+  font-size: var(--title-font-size, 50px);
+  font-weight: var(--title-font-weight, 400);
+  position: relative;
+  right: 37.71%;
+  left: 38.68%;
+  width: 23.61%;
+  bottom: 21.48%;
+  top: 50.12%;
+  height: 8.4%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.text-input {
+  width: 742px;
+  padding: 10px;
+  font-size: 16px;
+  background-color: transparent;
+  border-color: transparent;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.text-input:focus {
+  border-color: transparent;
+  outline: none;
+}
