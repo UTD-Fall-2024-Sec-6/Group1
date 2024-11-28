@@ -1,0 +1,148 @@
+.financial-info,
+.financial-info * {
+  box-sizing: border-box;
+}
+.financial-info {
+  height: 737px;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  flex-flow: wrap;
+  top: 228px;
+  justify-content: center;
+}
+.table {
+  border: 1px solid;
+  border-collapse: collapse;
+  width: 95%;
+  position: relative;
+  top: 50px;
+  height: 420px;
+  background-color: #ffffff;
+}
+.th {
+  border: 1px solid;
+  color: #496a54;
+  font-family: "MerriweatherSans-Regular", sans-serif;
+}
+.td {
+  border: 1px solid;
+  font-family: "MerriweatherSans-Regular", sans-serif;
+}
+.edit-button {
+  background: #ef874c;
+  width: 216px;
+  height: 44px;
+  position: relative;
+  top: 50px;
+  right: 15%;
+  align-content: center;
+}
+.export-button {
+  background: #ef874c;
+  width: 216px;
+  height: 44px;
+  position: relative;
+  top: 50px;
+  left: 15%;
+  align-content: center;
+}
+.button-text {
+  color: #ffffff;
+  font-family: "MerriweatherSans-Regular", sans-serif;
+  font-size: 25px;
+  text-align: center;
+  user-select: none;
+}
+.button-text-dark {
+  color: #000000;
+  font-family: "MerriweatherSans-Regular", sans-serif;
+  font-size: 25px;
+  text-align: center;
+  user-select: none;
+}
+.popup{
+  position: absolute;
+  top: -20px;
+  width: 600px;
+  height: 700px;
+  outline-style: solid;
+  outline-width: 1px;
+  background-color: #fdfdfd;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.infos {
+  position: relative;
+  width: 600px;
+  height: 400px;
+  display: flex;
+  align-content: baseline;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.info-box {
+  position: relative;
+  top: 50px;
+  width: 500px;
+  height: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-content: center;
+  outline: solid;
+  outline-width: 1px;
+}
+.info-text {
+  width: 420px;
+  color: #000000;
+  font-family: "MerriweatherSans-Regular", sans-serif;
+  font-size: 20px;
+  text-align: left;
+}
+.icon{
+  position:relative;
+  width: 27px;
+  height: 27px;
+}
+.add-button {
+  background: #d6e2d1;
+  width: 444px;
+  height: 44px;
+  align-content: center;
+}
+.close-box {
+  width: 40px;
+  height: 40px;
+  position: inherit;
+  top: 0px;
+  right: 0px;
+  background-color: #d6e2d1;
+  align-content: center;
+}
+.x {
+  color: #000000;
+  font-family: "MerriweatherSans-Regular", sans-serif;
+  font-size: 25px;
+  text-align: center;
+  user-select: none;
+}
+
+.delete-popup {
+  position: absolute;
+  top: 50px;
+  width: 300px;
+  height: 200px;
+  justify-self: center;
+  align-self: center;
+  outline-style: solid;
+  outline-width: 1px;
+  background-color: #fdfdfd;
+  display: flex;
+  flex-wrap: wrap;
+}
+.edit-popup {
+  position: absolute;
+  top: 50px;
+}

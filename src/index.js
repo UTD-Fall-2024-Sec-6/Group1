@@ -7,6 +7,7 @@ import HomePage from './App.HomePage';
 import LoginPage from './App.LoginPage';
 import Trends from './App.Trends';
 import Dashboard from './App.Dashboard';
+import FinancialInfo from './App.FinancialInfo';
 
 export default function App() {
   return (
@@ -15,7 +16,8 @@ export default function App() {
       <BrowserRouter>
         <Routes>
             <Route path="/" element={<Dashboard><HomePage /></Dashboard>} />
-            <Route path="/trends" element={<Dashboard><Trends /></Dashboard>} />
+          <Route path="/trends" element={<Dashboard><Trends /></Dashboard>} />
+          <Route path="/info" element={<Dashboard><FinancialInfo /></Dashboard>} />
             <Route path="/login" element={<LoginPage />} />
         </Routes>
     </BrowserRouter>
