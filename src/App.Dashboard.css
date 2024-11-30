@@ -7,6 +7,8 @@
   height: 1024px;
   position: relative;
   overflow: hidden;
+  height: 100%; /* Full height for content */
+  min-height: 100vh; /* Ensures it covers the viewport height */
 }
 .topbar {
   background: #496a54;

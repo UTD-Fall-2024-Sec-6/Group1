@@ -2,147 +2,131 @@
 .financial-info * {
   box-sizing: border-box;
 }
+
 .financial-info {
-  height: 737px;
-  width: 100%;
-  position: absolute;
   display: flex;
-  flex-flow: wrap;
-  top: 228px;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-}
-.table {
-  border: 1px solid;
-  border-collapse: collapse;
-  width: 95%;
-  position: relative;
-  top: 50px;
-  height: 420px;
-  background-color: #ffffff;
-}
-.th {
-  border: 1px solid;
-  color: #496a54;
-  font-family: "MerriweatherSans-Regular", sans-serif;
-}
-.td {
-  border: 1px solid;
-  font-family: "MerriweatherSans-Regular", sans-serif;
-}
-.edit-button {
-  background: #ef874c;
-  width: 216px;
-  height: 44px;
-  position: relative;
-  top: 50px;
-  right: 15%;
-  align-content: center;
-}
-.export-button {
-  background: #ef874c;
-  width: 216px;
-  height: 44px;
-  position: relative;
-  top: 50px;
-  left: 15%;
-  align-content: center;
-}
-.button-text {
-  color: #ffffff;
-  font-family: "MerriweatherSans-Regular", sans-serif;
-  font-size: 25px;
-  text-align: center;
-  user-select: none;
-}
-.button-text-dark {
-  color: #000000;
-  font-family: "MerriweatherSans-Regular", sans-serif;
-  font-size: 25px;
-  text-align: center;
-  user-select: none;
-}
-.popup{
-  position: absolute;
-  top: -20px;
-  width: 600px;
-  height: 700px;
-  outline-style: solid;
-  outline-width: 1px;
-  background-color: #fdfdfd;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.infos {
-  position: relative;
-  width: 600px;
-  height: 400px;
-  display: flex;
-  align-content: baseline;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-.info-box {
-  position: relative;
-  top: 50px;
-  width: 500px;
-  height: 32px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: left;
-  align-content: center;
-  outline: solid;
-  outline-width: 1px;
-}
-.info-text {
-  width: 420px;
-  color: #000000;
-  font-family: "MerriweatherSans-Regular", sans-serif;
-  font-size: 20px;
-  text-align: left;
-}
-.icon{
-  position:relative;
-  width: 27px;
-  height: 27px;
-}
-.add-button {
-  background: #d6e2d1;
-  width: 444px;
-  height: 44px;
-  align-content: center;
-}
-.close-box {
-  width: 40px;
-  height: 40px;
-  position: inherit;
-  top: 0px;
-  right: 0px;
-  background-color: #d6e2d1;
-  align-content: center;
-}
-.x {
-  color: #000000;
-  font-family: "MerriweatherSans-Regular", sans-serif;
-  font-size: 25px;
-  text-align: center;
-  user-select: none;
+  padding: 20px;
+  background-color: #f5e7dc; /* Tan background color */
+  min-height: 100vh; /* Ensures it covers the full viewport height */
 }
 
-.delete-popup {
-  position: absolute;
-  top: 50px;
-  width: 300px;
-  height: 200px;
-  justify-self: center;
-  align-self: center;
-  outline-style: solid;
-  outline-width: 1px;
-  background-color: #fdfdfd;
-  display: flex;
-  flex-wrap: wrap;
+.table, .totals-table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  width: 90%;
+  margin: 20px 0;
+  background-color: #ffffff;
 }
-.edit-popup {
-  position: absolute;
-  top: 50px;
+.table th, .table td,
+.totals-table th, .totals-table td {
+  border: 1px solid #ccc;
+  padding: 12px;
+  text-align: center;
+  font-family: "MerriweatherSans-Regular", sans-serif;
+  font-size: 14px;
+}
+
+/* Header styling */
+.table th, .totals-table th {
+  background-color: #f3f3f3;
+  font-weight: bold;
+  color: #496a54;
+}
+
+.table tr:nth-child(even), 
+.totals-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.table tr:hover, 
+.totals-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.edit-button,
+.export-button {
+  background: #ef874c;
+  width: 180px;
+  height: 44px;
+  margin: 10px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.edit-button .button-text,
+.export-button .button-text {
+  color: #ffffff;
+  font-family: "MerriweatherSans-Regular", sans-serif;
+  font-size: 18px;
+  position: relative;
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  cursor: pointer; /* Pointer on hover */
+  margin: 10px; /* Add margin for spacing */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Optional: Make the button edges rounded */
+}
+
+.popup {
+  position: fixed;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Correct centering */
+  background-color: white;
+  border: 2px solid #ccc;
+  padding: 20px;
+  z-index: 10;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  border-radius: 8px;
+}
+
+.popup h3 {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.popup label {
+  display: block;
+  margin-bottom: 5px;
+  font-family: "MerriweatherSans-Regular", sans-serif;
+  font-size: 14px;
+}
+
+.popup input {
+  display: block;
+  width: calc(100% - 20px);
+  margin-bottom: 15px;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.popup button {
+  padding: 10px 15px;
+  margin-right: 10px;
+  border: none;
+  background-color: #ef874c;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.popup button:last-child {
+  background-color: #ccc;
+}
+
+/* Fix for extending background */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f5e7dc;
+  min-height: 100vh;
 }
