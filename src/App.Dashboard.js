@@ -1,14 +1,18 @@
 import React, { Children } from 'react';
 import './App.Dashboard.css';
+import { useNavigate } from 'react-router-dom';
 
 function HomeButton() {
+  const navigate = useNavigate();
+
   const handleClick = () => {
     console.log('Home clicked!');
+    navigate('/'); // Redirect to the Home page
   };
 
   return (
     <div onClick={handleClick} className="home-button">
-        <div class="dashboard-button-title">Home</div>
+      <div className="dashboard-button-title">Home</div>
     </div>
   );
 }
@@ -26,29 +30,34 @@ function BudgetButton() {
 }
 
 function TrendButton() {
+  const navigate = useNavigate();
+
   const handleClick = () => {
     console.log('Trends and Insights clicked!');
+    navigate('/trends'); // Redirect to the Trends page
   };
 
   return (
     <div onClick={handleClick} className="trend-button">
-        <div class="dashboard-button-title">Trends and Insight</div>
+      <div className="dashboard-button-title">Trends and Insight</div>
     </div>
   );
 }
 
 function FinancialButton() {
+  const navigate = useNavigate();
+
   const handleClick = () => {
     console.log('Financial Info clicked!');
+    navigate('/info'); // Redirect to the Financial Info page
   };
 
   return (
     <div onClick={handleClick} className="financial-button">
-        <div class="dashboard-button-title">Financial Info</div>
+      <div className="dashboard-button-title">Financial Info</div>
     </div>
   );
 }
-
 function Dashboard({ children }) {
   return (
     <div class="dashboard">
