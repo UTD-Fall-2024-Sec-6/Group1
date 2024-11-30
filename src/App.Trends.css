@@ -32,14 +32,50 @@
   position: absolute;
   top: 50px;
 }
+.chart-container {
+  width: 300px;
+  height: 600px;
+  position: relative;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
 .chart {
   width: 300px;
   height: 300px;
   position: relative;
-  top: 100px;
-  justify-content:space-evenly;
+  justify-content: space-evenly;
   border-radius: 50%;
-  background-image: conic-gradient( pink 70deg, lightblue 0 235deg, orange 0 );
+}
+.chart-label {
+  position: relative;
+  width: 270px;
+  height: 300px;
+  top: 20px;
+  left: 50px;
+  display: block;
+}
+.chart-label-text {
+  color: #496a54;
+  text-align: center;
+  font-family: "MerriweatherSans-Regular", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+  width: 110px;
+  height: 20px;
+  float: left;
+  margin-left: 10px;
+}
+.chart-label-box {
+  width: 12px;
+  height: 12px;
+  border: solid;
+  border-color: #000000;
+  border-width: 2px;
+  position: relative;
+  float: left;
 }
 .insights {
   background: #fff2e4;
