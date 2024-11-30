@@ -1,0 +1,349 @@
+.frame-2,
+.frame-2 * {
+  box-sizing: border-box;
+}
+.frame-2 {
+  height: 1024px;
+  position: relative;
+  overflow: hidden;
+}
+.rectangle-29 {
+  background: #fff2e4;
+  border-style: solid;
+  border-color: #496a54;
+  border-width: 1px;
+  width: 1303px;
+  height: 311px;
+  position: absolute;
+  left: 48px;
+  top: 368px;
+}
+.delete-account {
+  color: #496a54;
+  text-align: center;
+  font-family: "MerriweatherSans-Regular", sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  position: absolute;
+  left: 48px;
+  top: 927px;
+  width: 516px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.account-management {
+  color: #496a54;
+  text-align: left;
+  font-family: "MerriweatherSans-Regular", sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  position: absolute;
+  left: 75px;
+  top: 242px;
+  width: 437px;
+  height: 67px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.rectangle-16 {
+  background: rgba(217, 217, 217, 0);
+  border-style: solid;
+  border-color: #496a54;
+  border-width: 1px;
+  width: 453px;
+  height: 79px;
+  position: absolute;
+  left: 45px;
+  top: 242px;
+}
+.dob {
+  color: #496a54;
+  text-align: left;
+  font-family: "MerriweatherSans-Regular", sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  position: absolute;
+  left: 71px;
+  top: 563px;
+  width: 208px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.user-info {
+  color: #496a54;
+  text-align: left;
+  font-family: "MerriweatherSans-Regular", sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  position: absolute;
+  left: 66px;
+  top: 387px;
+  width: 359px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  -webkit-text-stroke: 1px #496a54;
+}
+.name {
+  color: #496a54;
+  text-align: left;
+  font-family: "MerriweatherSans-Regular", sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  position: absolute;
+  left: 71px;
+  top: 454px;
+  width: 208px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.email {
+  color: #496a54;
+  text-align: left;
+  font-family: "MerriweatherSans-Regular", sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  position: absolute;
+  left: 766px;
+  top: 454px;
+  width: 459px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.rectangle-34 {
+  background: rgba(217, 217, 217, 0);
+  border-style: solid;
+  border-color: #496a54;
+  border-width: 1px;
+  width: 516px;
+  height: 56px;
+  position: absolute;
+  left: 48px;
+  top: 826px;
+}
+.rectangle-30 {
+  background: #d6e2d1;
+  width: 456px;
+  height: 47px;
+  position: absolute;
+  left: 71px;
+  top: 503px;
+}
+.rectangle-31 {
+  background: #d6e2d1;
+  width: 456px;
+  height: 47px;
+  position: absolute;
+  left: 71px;
+  top: 599px;
+}
+.rectangle-32 {
+  background: #d6e2d1;
+  width: 456px;
+  height: 47px;
+  position: absolute;
+  left: 769px;
+  top: 503px;
+}
+.rectangle-33 {
+  background: rgba(217, 217, 217, 0);
+  border-style: solid;
+  border-color: #496a54;
+  border-width: 1px;
+  width: 382px;
+  height: 53px;
+  position: absolute;
+  left: 769px;
+  top: 593px;
+}
+.rectangle-35 {
+  background: rgba(217, 217, 217, 0);
+  border-style: solid;
+  border-color: #496a54;
+  border-width: 1px;
+  width: 516px;
+  height: 56px;
+  position: absolute;
+  left: 48px;
+  top: 927px;
+}
+.edit-user-details {
+  color: #496a54;
+  text-align: center;
+  font-family: "MerriweatherSans-Regular", sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  text-decoration: underline;
+  position: absolute;
+  left: 48px;
+  top: 825px;
+  width: 516px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.account {
+  color: #496a54;
+  text-align: center;
+  font-family: "MerriweatherSans-Regular", sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  text-decoration: underline;
+  position: absolute;
+  left: -148px;
+  top: 692px;
+  width: 516px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.change-password {
+  color: #496a54;
+  text-align: center;
+  font-family: "MerriweatherSans-Regular", sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  position: absolute;
+  left: 769px;
+  top: 593px;
+  width: 382px;
+  height: 53px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.delete-account2 {
+  color: #496a54;
+  text-align: center;
+  font-family: "MerriweatherSans-Regular", sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  position: absolute;
+  left: 48px;
+  top: 927px;
+  width: 516px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rectangle-36 {
+  background: #ffffff;
+  border-style: solid;
+  border-color: #496a54;
+  border-width: 2px;
+  width: 702px;
+  height: 652px;
+  position: absolute;
+  left: 395px;
+  top: 266px;
+}
+.rectangle-37 {
+  background: #496a54;
+  width: 538px;
+  height: 87px;
+  position: absolute;
+  left: 477px;
+  top: 326px;
+}
+.delete-account-pop {
+  color: #ffffff;
+  text-align: center;
+  font-family: "MerriweatherSans-Regular", sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  position: absolute;
+  left: 477px;
+  top: 328px;
+  width: 538px;
+  height: 85px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rectangle-38 {
+  background: #fafafa;
+  border-style: solid;
+  border-color: #496a54;
+  border-width: 1px;
+  width: 535px;
+  height: 285px;
+  position: absolute;
+  left: 480px;
+  top: 461px;
+}
+.warning {
+  color: #000000;
+  text-align: left;
+  font-family: "MerriweatherSans-Regular", sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  position: absolute;
+  left: 498px;
+  top: 461px;
+  width: 499px;
+  height: 285px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.rectangle-39 {
+  background: #d6e2d1;
+  width: 272px;
+  height: 71px;
+  position: absolute;
+  left: 448px;
+  top: 793px;
+}
+.rectangle-40 {
+  background: #d6e2d1;
+  width: 272px;
+  height: 71px;
+  position: absolute;
+  left: 770px;
+  top: 793px;
+}
+.cancel {
+  color: #000000;
+  text-align: center;
+  font-family: "MerriweatherSans-Regular", sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  position: absolute;
+  left: 451px;
+  top: 793px;
+  width: 269px;
+  height: 71px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.yes-i-am-sure {
+  color: #000000;
+  text-align: center;
+  font-family: "MerriweatherSans-Regular", sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  position: absolute;
+  left: 773px;
+  top: 793px;
+  width: 269px;
+  height: 71px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
