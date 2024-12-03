@@ -31,7 +31,12 @@ function Account() {
     setIsPopupVisible(true);
   };
 
-  const closePopup = () => {
+  const closePopupYes = () => {
+    setIsPopupVisible(false);
+    navigate('/login')
+  };
+
+  const closePopupNo = () => {
     setIsPopupVisible(false);
   };
 
@@ -89,10 +94,10 @@ function Account() {
           </div>
           <div className="rectangle-39"></div>
           <div className="rectangle-40"></div>
-          <button className="cancel" onClick={closePopup}>
+          <button className="cancel" onClick={closePopupNo}>
             Cancel
           </button>
-          <button className="yes-i-am-sure" onClick={closePopup}>
+          <button className="yes-i-am-sure" onClick={closePopupYes}>
             Yes I am Sure
           </button>
         </div>
