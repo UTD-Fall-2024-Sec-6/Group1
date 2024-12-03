@@ -1,32 +1,24 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './App.LoginPage.css';
 
-function EnterButton() {
-    const handleClick = () => {
-        console.log('Div clicked!');
-    };
-
-    return (
-        <div onClick={handleClick} className="rectangle-13">
-            <div class="enter">ENTER</div>
-        </div>
-    );
+function EnterButton({ onClick }) {
+  return (
+    <div onClick={onClick} className="rectangle-13">
+      <div className="enter">ENTER</div>
+    </div>
+  );
 }
 
-function TextInput() {
-  const [text, setText] = useState('');
-
-  const handleChange = (event) => {
-    setText(event.target.value);
-  };
-
+function TextInput({ id, value, onChange, placeholder }) {
   return (
     <div className="text-input-container">
       <input
+        id={id}
         type="text"
-        value={text}
-        onChange={handleChange}
-        placeholder="Type here..."
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
         className="text-input"
       />
     </div>
@@ -34,20 +26,58 @@ function TextInput() {
 }
 
 function LoginPage() {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const navigate = useNavigate();
+
+  const trimu = username.trim();
+  const trump = password.trim();
+
+  console.log("Username: ", trimu);
+  console.log("Password: ", trump);
+
+  const handleLogin = () => {
+    // Hardcoded credentials
+    const credentials = {
+      user1: 'password1',
+      user2: 'password2',
+      admin: 'admin123',
+    };
+
+    // Validate credentials
+    if (credentials[trimu] === trump) {
+      alert('Login successful!');
+      navigate('/')
+    } else {
+      alert('Invalid username or password.');
+    }
+  };
+
   return (
-    <div class="log-in-page">
-      <div class="rectangle-10">
-        <div class="login">LOGIN</div>
+    <div className="log-in-page">
+      <div className="rectangle-10">
+        <div className="login">LOGIN</div>
       </div>
-      <div class="username">Username:</div>
-      <div class="password">Password:</div>
-      <div class="rectangle-11">
-        <TextInput/>
+      <div className="username">Username:</div>
+      <div className="password">Password:</div>
+      <div className="rectangle-12">
+        <TextInput
+          id="username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          placeholder="Enter Username"
+        />
       </div>
-      <div class="rectangle-12">
-        <TextInput/>
+      <div className="rectangle-11">
+        <TextInput
+          id="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Enter Password"
+        />
       </div>
-      <EnterButton/>
+      <EnterButton onClick={handleLogin} />
     </div>
   );
 }
