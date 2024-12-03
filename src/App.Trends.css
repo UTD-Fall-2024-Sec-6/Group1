@@ -1,0 +1,129 @@
+.trends,
+.trends * {
+  box-sizing: border-box;
+}
+.trends {
+  height: 737px;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  top: 228px;
+  justify-content: center;
+}
+.trends-title {
+  color: #496a54;
+  text-align: center;
+  font-family: "MerriweatherSans-Regular", sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  display: flex;
+  position: relative;
+  width: 400px;
+  height: 72px;
+}
+.data-body {
+  background: #fff2e4;
+  border-style: hidden;
+  width: 1200px;
+  height: 500px;
+  display: flex;
+  justify-content: space-evenly;
+  columns: 2;
+  position: absolute;
+  top: 50px;
+}
+.chart-container {
+  width: 300px;
+  height: 600px;
+  position: relative;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+.chart {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  justify-content: space-evenly;
+  border-radius: 50%;
+}
+.chart-label {
+  position: relative;
+  width: 270px;
+  height: 300px;
+  top: 20px;
+  left: 50px;
+  display: block;
+}
+.chart-label-text {
+  color: #496a54;
+  text-align: center;
+  font-family: "MerriweatherSans-Regular", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+  width: 110px;
+  height: 20px;
+  float: left;
+  margin-left: 10px;
+}
+.chart-label-box {
+  width: 12px;
+  height: 12px;
+  border: solid;
+  border-color: #000000;
+  border-width: 2px;
+  position: relative;
+  float: left;
+}
+.insights {
+  background: #fff2e4;
+  border-style: hidden;
+  width: 300px;
+  height: 450px;
+  display: grid;
+  position: relative;
+  top: 120px;
+  left: 80px;
+  justify-content: center;
+}
+
+.insight1 {
+  color: #496a54;
+  text-align: center;
+  font-family: "MerriweatherSans-Regular", sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  display: flex;
+  position: inherit;
+  justify-content: center;
+  width: 200px;
+  height: 50px;
+}
+
+.insight2 {
+  color: #496a54;
+  text-align: center;
+  font-family: "MerriweatherSans-Regular", sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  display: flex;
+  position: inherit;
+  justify-content: center;
+  width: 200px;
+  height: 72px;
+}
+.insight-subtext {
+  color: #496a54;
+  text-align: center;
+  font-family: "MerriweatherSans-Regular", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  display: flex;
+  grid-column: 2;
+  position: inherit;
+  top: 22px;
+  width: 400px;
+  height: 24px;
+}

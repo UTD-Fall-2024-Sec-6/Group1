@@ -1,0 +1,117 @@
+.home-page,
+.home-page * {
+  box-sizing: border-box;
+}
+.home-page {
+  height: 737px;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  top: 228px;
+  justify-content: center;
+}
+.account-button {
+  background: #d6e2d1;
+  border-style: solid;
+  border-color: #496a54;
+  border-width: 1px;
+  width: 453px;
+  height: 79px;
+  display: flex;
+  position: absolute;
+  right: 10%;
+  top: 117px;
+  align-items: center; /* Ensures the text is vertically centered */
+  justify-content: center; /* Ensures the text is horizontally centered */
+  cursor: pointer; /* Adds a pointer cursor to indicate clickability */
+  font-size: 32px; /* Slightly reduced size for better fit */
+  font-weight: 600; /* Slightly bolder text for emphasis */
+  color: #2a4d25; /* Change this to your desired color */
+}
+
+.account-button:hover {
+  background: #c4d6be; /* Slightly darker background on hover */
+}
+
+
+.homepage {
+  color: #496a54;
+  text-align: center;
+  font-family: "MerriweatherSans-Regular", sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  display: flex;
+  position: relative;
+  width: 214px;
+  height: 72px;
+}
+.features-box {
+    background: #fff2e4;
+    border-style: solid;
+    border-color: #496a54;
+    border-width: 1px;
+    width: 510px;
+    height: 498px;
+    display: flex;
+    position: absolute;
+    right: 8%;
+    top: 239px;
+}
+.about-box-desc {
+  color: #576e5f;
+  text-align: left;
+  font-family: var(--text-font-family, "MerriweatherSans-Regular", sans-serif);
+  font-size: var(--text-font-size, 32px);
+  font-weight: var(--text-font-weight, 400);
+  display: flex;
+  position: absolute;
+  left: 1%;
+  top: 1%;
+  width: 98%;
+  height: 92px;
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: normal;
+}
+.account-management {
+  color: #23984a;
+  text-align: center;
+  font-family: "MerriweatherSans-Regular", sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  display: flex;
+  position: absolute;
+  width: 437px;
+  height: 67px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.about-us {
+  color: #496a54;
+  text-align: left;
+  font-family: "MerriweatherSans-Regular", sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  display: flex;
+  position: absolute;
+  left: 8%;
+  top: 137px;
+  width: 506px;
+  height: 59px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.about-box {
+  background: #fff2e4;
+  border-style: solid;
+  border-color: #496a54;
+  border-width: 1px;
+  width: 510px;
+  height: 498px;
+  display: flex;
+  position: absolute;
+  left: 8%;
+  top: 239px;
+}
