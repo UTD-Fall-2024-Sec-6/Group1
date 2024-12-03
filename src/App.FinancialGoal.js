@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.FinancialGoal.css';
+import User from './User.js';
 
 
 function ProgressBar({ percentage, className }) {
@@ -13,8 +14,9 @@ function ProgressBar({ percentage, className }) {
   ); 
 }
 
-function FinancialGoal({ loggedInUser }) {
+function FinancialGoal() {
   const [contributionFrequency, setContributionFrequency] = useState('weekly');
+  const testUser = new User('John Doe', 'john@example.com', 'password123', 1, 5000);
 
   const [saving1, setSaving1] = useState('');
   const [saving2, setSaving2] = useState('');
@@ -40,7 +42,7 @@ function FinancialGoal({ loggedInUser }) {
   const progressSpending2 = calculateProgress(Number(spending2));
   const progressSpending3 = calculateProgress(Number(spending3));
 
-  const budget = loggedInUser.getBudget();
+  const budget = testUser.getBudget();
 
   budget.createGoal(5000, 'short-term');
 
@@ -50,39 +52,22 @@ function FinancialGoal({ loggedInUser }) {
 
   const handleSubmit = async () => {
     const entry = {
-      id: loggedInUser.id, // Unique identifier
+      id: testUser.id, // Unique identifier
       contributionFrequency,
       savings: savingsCategories.map((category) => ({
         name: category.name,
         value: category.value,
       })),
+      
     };
-  
-    try {
-      const response = await fetch('http://localhost:3000/entries', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(entry),
-      });
-  
-      if (response.ok) {
-        alert('Goal saved successfully!');
-        setSavingsCategories([{ name: '', value: 0 }]); // Reset savings categories after saving
-      } else {
-        alert('Failed to save goal.');
-      }
-    } catch (error) {
-      console.error('Error saving goal:', error);
-      alert('An error occurred. Please try again.');
-    }
+    alert('Category Set Successfully');
   };
   
   const [savingsCategories, setSavingsCategories] = useState([{ name: '', value: 0 }]);
   
   const handleAddSavingCategory = () => {
     setSavingsCategories([...savingsCategories, { name: '', value: 0 }]);
+    handleSubmit();
   };
 
   return (
