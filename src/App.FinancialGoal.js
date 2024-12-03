@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.FinancialGoal.css';
 
+
 function ProgressBar({ percentage, className }) {
   return (
     <div className={`progress-bar ${className}`}>
@@ -9,35 +10,128 @@ function ProgressBar({ percentage, className }) {
         style={{ width: `${percentage}%` }}
       ></div>
     </div>
-  );
+  ); 
 }
 
-function FinancialGoal() {
-  const [progress56, setProgress56] = useState(25);
-  const [progress57, setProgress57] = useState(50);
-  const [progress58, setProgress58] = useState(75);
-  const [progress59, setProgress59] = useState(90);
-  const [progress60, setProgress60] = useState(10);
+function FinancialGoal({ loggedInUser }) {
+  const [contributionFrequency, setContributionFrequency] = useState('weekly');
+
+  const [saving1, setSaving1] = useState('');
+  const [saving2, setSaving2] = useState('');
+  const [spending1, setSpending1] = useState('');
+  const [spending2, setSpending2] = useState('');
+  const [spending3, setSpending3] = useState('');
+
+  const handleSaving1Change = (event) => setSaving1(event.target.value);
+  const handleSaving2Change = (event) => setSaving2(event.target.value);
+  const handleSpending1Change = (event) => setSpending1(event.target.value);
+  const handleSpending2Change = (event) => setSpending2(event.target.value);
+  const handleSpending3Change = (event) => setSpending3(event.target.value);
+
+  const goalAmount = 1000; // Example goal amount
+
+  const calculateProgress = (amount) => {
+    return Math.min((amount / goalAmount) * 100, 100);
+  };
+
+  const progressSaving1 = calculateProgress(Number(saving1));
+  const progressSaving2 = calculateProgress(Number(saving2));
+  const progressSpending1 = calculateProgress(Number(spending1));
+  const progressSpending2 = calculateProgress(Number(spending2));
+  const progressSpending3 = calculateProgress(Number(spending3));
+
+  const budget = loggedInUser.getBudget();
+
+  budget.createGoal(5000, 'short-term');
+
+  const handleFrequencyChange = (frequency) => {
+    setContributionFrequency(frequency);
+  };
+
+  const handleSubmit = async () => {
+    const entry = {
+      id: loggedInUser.id, // Unique identifier
+      contributionFrequency,
+      savings: savingsCategories.map((category) => ({
+        name: category.name,
+        value: category.value,
+      })),
+    };
+  
+    try {
+      const response = await fetch('http://localhost:3000/entries', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(entry),
+      });
+  
+      if (response.ok) {
+        alert('Goal saved successfully!');
+        setSavingsCategories([{ name: '', value: 0 }]); // Reset savings categories after saving
+      } else {
+        alert('Failed to save goal.');
+      }
+    } catch (error) {
+      console.error('Error saving goal:', error);
+      alert('An error occurred. Please try again.');
+    }
+  };
+  
+  const [savingsCategories, setSavingsCategories] = useState([{ name: '', value: 0 }]);
+  
+  const handleAddSavingCategory = () => {
+    setSavingsCategories([...savingsCategories, { name: '', value: 0 }]);
+  };
 
   return (
     <div className="financial-goal-container">
-      {/* The dashboard buttons are part of the Dashboard component. */}
-      {/* Ensure they're styled properly for this page. */}
-
       <div className="set-your-goals">Set your Goals</div>
-      <div className="rectangle-41"></div>
-      <button className="weekly">Weekly</button>
-      <div className="rectangle-42"></div>
-      <button className="monthly">Monthly</button>
-      <div className="rectangle-43"></div>
-      <div className="current">Current</div>
+      <button
+        className={`weekly ${contributionFrequency === 'weekly' ? 'active' : ''}`}
+        onClick={() => handleFrequencyChange('weekly')}
+      >
+        Weekly
+      </button>
+      <button
+        className={`monthly ${contributionFrequency === 'monthly' ? 'active' : ''}`}
+        onClick={() => handleFrequencyChange('monthly')}
+      >
+        Monthly
+      </button>
 
       {/* Text Inputs */}
-      <TextInput placeholder="Saving 1" className="saving-1" />
-      <TextInput placeholder="Saving 2" className="saving-2" />
-      <TextInput placeholder="Spending 1" className="spending-1" />
-      <TextInput placeholder="Spending 2" className="spending-2" />
-      <TextInput placeholder="Spending 3" className="spending-3" />
+      <TextInput
+      placeholder="Saving 1"
+      className="saving-1"
+      value={saving1}
+      onChange={handleSaving1Change}
+      />
+      <TextInput
+        placeholder="Saving 2"
+        className="saving-2"
+        value={saving2}
+        onChange={handleSaving2Change}
+      />
+      <TextInput
+        placeholder="Spending 1"
+        className="spending-1"
+        value={spending1}
+        onChange={handleSpending1Change}
+      />
+      <TextInput
+        placeholder="Spending 2"
+        className="spending-2"
+        value={spending2}
+        onChange={handleSpending2Change}
+      />
+      <TextInput
+        placeholder="Spending 3"
+        className="spending-3"
+        value={spending3}
+        onChange={handleSpending3Change}
+      />
 
       {/* Number Inputs */}
       <NumberInput placeholder="Enter value" className="rectangle-46" />
@@ -52,17 +146,18 @@ function FinancialGoal() {
       <div className="spending-22">Spending 2</div>
       <div className="spending-32">Spending 3</div>
 
-      {/* Progress Bars */}
-      <ProgressBar percentage={progress56} className="rectangle-56" />
-      <ProgressBar percentage={progress57} className="rectangle-57" />
-      <ProgressBar percentage={progress58} className="rectangle-58" />
-      <ProgressBar percentage={progress59} className="rectangle-59" />
-      <ProgressBar percentage={progress60} className="rectangle-60" />
+      <ProgressBar percentage={progressSaving1} className="rectangle-56" />
+      <ProgressBar percentage={progressSaving2} className="rectangle-57" />
+      <ProgressBar percentage={progressSpending1} className="rectangle-58" />
+      <ProgressBar percentage={progressSpending2} className="rectangle-59" />
+      <ProgressBar percentage={progressSpending3} className="rectangle-60" />
 
       <div className="spending">Spending</div>
       <div className="saving">Saving</div>
       <div className="rectangle-54"></div>
-      <div className="add-saving-category">Add Saving Category</div>
+      <button onClick={handleAddSavingCategory} className="add-saving-category">
+        Add Saving Category
+      </button>
       <div className="rectangle-55"></div>
       <div className="add-spending-category">Add Spending Category</div>
     </div>
